@@ -42,8 +42,10 @@ android {
     buildTypes {
         debug {
             minifyEnabled true
-            debuggable true
             useProguard false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
         }
 
         release {
@@ -84,7 +86,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // App dependencies
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.supportLibraryVersion"
@@ -94,6 +96,7 @@ dependencies {
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    implementation 'com.android.support:support-v4:28.0.0'
     kapt "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
 
     //Dagger

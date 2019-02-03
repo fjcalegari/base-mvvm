@@ -2,7 +2,7 @@ package com.fjc.basemvvm
 
 import android.app.Activity
 import android.app.Application
-import com.fjc.basemvvm.di.builder.initInjector
+import com.fjc.basemvvm.di.builder.AppInjector
 import com.fjc.basemvvm.di.component.AppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -15,7 +15,7 @@ class BaseApp: Application(), HasActivityInjector {
         return activityAndroidInjector
     }
 
-    lateinit var appComponent: AppComponent
+    private lateinit var appComponent: AppComponent
 
     @Inject
     lateinit var activityAndroidInjector: DispatchingAndroidInjector<Activity>
@@ -23,8 +23,7 @@ class BaseApp: Application(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
 
-        appComponent = initInjector(this)
-
+        appComponent = AppInjector.init(this)
 
     }
 

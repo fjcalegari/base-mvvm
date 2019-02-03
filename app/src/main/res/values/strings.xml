@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">BaseMVVM</string>
     <string name="action_settings">Settings</string>
+
+    <string name="title_main_users">Users</string>
+    <string name="title_main_posts">Posts</string>
+    <string name="title_main_albums">Albums</string>
+
 </resources>
